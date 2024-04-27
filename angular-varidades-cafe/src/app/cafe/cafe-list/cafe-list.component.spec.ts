@@ -1,13 +1,12 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { faker } from '@faker-js/faker';
-
 import { CafeListComponent } from './cafe-list.component';
 import { CafeService } from './cafe.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Cafe } from '../cafe';
+
 
 describe('CafeListComponent', () => {
   let component: CafeListComponent;
@@ -23,6 +22,7 @@ describe('CafeListComponent', () => {
     .compileComponents();
   }));
 
+  //uso de faker para creación dinamica de datos
   beforeEach(() => {
     fixture = TestBed.createComponent(CafeListComponent);
     component = fixture.componentInstance;
@@ -47,16 +47,19 @@ describe('CafeListComponent', () => {
     debug = fixture.debugElement;
   });
 
+  //pruebas de creacion 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
+  //prueba de elementos en el body
   it('should have four tr elements: one head and three bodies', () => {
     expect(debug.queryAll(By.css('tr'))).toHaveSize(4)
     expect(debug.queryAll(By.css('tr.head'))).toHaveSize(1)
     expect(debug.queryAll(By.css('tr.body'))).toHaveSize(3)
   });
 
+  //prueba de cantidad de tag para nombre, tipo y region
   it('should have td tag with the cafe.nombre, cafe.tipo, cafe.region', () => {
     debug.queryAll(By.css('td.nombre')).forEach((td, i)=>{
       expect(td.nativeElement.textContent).toContain(component.cafes[i].nombre)

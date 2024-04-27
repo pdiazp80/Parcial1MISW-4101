@@ -10,12 +10,14 @@ describe('AppComponent', () => {
     declarations: [AppComponent, CafeListComponent]
   }));
 
+  //pruebas de creacion 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
+  //Pruebas de titulo
   it(`should have as title 'Evaluación práctica Angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
