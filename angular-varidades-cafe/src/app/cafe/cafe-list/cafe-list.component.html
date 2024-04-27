@@ -1,1 +1,33 @@
-<p>Pendiente</p>
+<div class="container">
+
+  <div class="row">
+    <div class="col-7">
+      <table class="table">
+        <thead>
+          <tr class="table-dark head">
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Región</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="body" *ngFor="let cafe of cafes">
+            <th scope="row">{{cafe.id}}</th>
+            <td class="nombre">{{cafe.nombre}}</td>
+            <td class="tipo">{{cafe.tipo}}</td>
+            <td class="region">{{cafe.region}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <p>
+      Total café de orígen: {{getTotalByTipo('Café de Origen')}}<br>
+      Total café blend: {{getTotalByTipo('Blend')}}<br>
+
+    </p>
+  </div>
+
+</div>
