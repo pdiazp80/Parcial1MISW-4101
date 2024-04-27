@@ -10,7 +10,7 @@ import { CafeService } from './cafe.service';
 })
 export class CafeListComponent implements OnInit {
 
-
+  
   cafes: Array<Cafe> = [];
 
   constructor(private cafeService: CafeService) { }
