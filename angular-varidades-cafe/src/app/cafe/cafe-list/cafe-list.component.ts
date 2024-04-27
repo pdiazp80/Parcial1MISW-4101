@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Cafe } from '../cafe';
+import { CafeService } from './cafe.service';
+
 @Component({
   selector: 'app-cafe-list',
   templateUrl: './cafe-list.component.html',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CafeListComponent implements OnInit {
 
-  constructor() { }
+
+  cafes: Array<Cafe> = [];
+
+  constructor(private cafeService: CafeService) { }
+
+
+
+  getCafes(): void {
+    this.cafeService.getCafes().subscribe((cafe) => {
+      this.cafes = cafe;
+    })
+  }
+
+
+  getTotalByTipo(tipo: string): number {
+    return this.cafes.filter(cafe => cafe.tipo == tipo).length;
+  }
 
   ngOnInit() {
+
+    this.getCafes();
   }
 
 }
